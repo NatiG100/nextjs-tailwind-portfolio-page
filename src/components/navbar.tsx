@@ -7,27 +7,37 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import {
-  RectangleStackIcon,
-  UserCircleIcon,
-  CommandLineIcon,
-  Squares2X2Icon,
   XMarkIcon,
   Bars3Icon,
+  WrenchScrewdriverIcon,
+  FolderIcon,
+  UsersIcon,
+  AtSymbolIcon,
 } from "@heroicons/react/24/solid";
+import Image from "next/image";
+import { sections } from "@/constants";
+import { Link } from "react-scroll";
 
 const NAV_MENU = [
   {
-    name: "Page",
-    icon: RectangleStackIcon,
+    name: "Services",
+    icon: WrenchScrewdriverIcon,
+    href: `${sections.services}`,
   },
   {
-    name: "Account",
-    icon: UserCircleIcon,
+    name: "Projects",
+    icon: FolderIcon,
+    href: `${sections.projects}`,
   },
   {
-    name: "Docs",
-    icon: CommandLineIcon,
-    href: "https://www.material-tailwind.com/docs/react/installation",
+    name: "About Us",
+    icon: UsersIcon,
+    href: `${sections.aboutUs}`,
+  },
+  {
+    name: "Contact Us",
+    icon: AtSymbolIcon,
+    href: `${sections.contactUs}`,
   },
 ];
 
@@ -38,18 +48,15 @@ interface NavItemProps {
 
 function NavItem({ children, href }: NavItemProps) {
   return (
-    <li>
+    <Link smooth to={href || ""} duration={500} className="cursor-pointer">
       <Typography
-        as="a"
-        href={href || "#"}
-        target={href ? "_blank" : "_self"}
         variant="paragraph"
         color="gray"
         className="flex items-center gap-2 font-medium text-gray-900"
       >
         {children}
       </Typography>
-    </li>
+    </Link>
   );
 }
 
@@ -68,9 +75,20 @@ export function Navbar() {
   return (
     <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between">
-        <Typography color="blue-gray" className="text-lg font-bold">
-          Material Tailwind
-        </Typography>
+        <Link
+          smooth
+          to={`${sections.home}`}
+          duration={500}
+          className="cursor-pointer"
+        >
+          <Image
+            height={400}
+            width={1000}
+            className="h-14 w-max"
+            alt="Logo"
+            src="/logos/logo.svg"
+          />
+        </Link>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href }) => (
             <NavItem key={name} href={href}>
@@ -81,9 +99,9 @@ export function Navbar() {
         </ul>
         <div className="hidden items-center gap-2 lg:flex">
           <Button variant="text">Sign In</Button>
-          <a href="https://www.material-tailwind.com/blocks" target="_blank">
-            <Button color="gray">blocks</Button>
-          </a>
+          <Link to={"mailto:gashubetsegaw@fakeemail.com"} target="_blank">
+            <Button color="gray">Say Hello</Button>
+          </Link>
         </div>
         <IconButton
           variant="text"
@@ -101,8 +119,8 @@ export function Navbar() {
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
           <ul className="flex flex-col gap-4">
-            {NAV_MENU.map(({ name, icon: Icon }) => (
-              <NavItem key={name}>
+            {NAV_MENU.map(({ name, icon: Icon, href }) => (
+              <NavItem key={name} href={href}>
                 <Icon className="h-5 w-5" />
                 {name}
               </NavItem>
@@ -110,9 +128,9 @@ export function Navbar() {
           </ul>
           <div className="mt-6 mb-4 flex items-center gap-2">
             <Button variant="text">Sign In</Button>
-            <a href="https://www.material-tailwind.com/blocks" target="_blank">
-              <Button color="gray">blocks</Button>
-            </a>
+            <Link to={"mailto:gashubetsegaw@fakeemail.com"} target="_blank">
+              <Button color="gray">Say Hello</Button>
+            </Link>
           </div>
         </div>
       </Collapse>

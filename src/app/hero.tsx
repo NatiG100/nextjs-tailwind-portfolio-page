@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { Input, Button, Typography } from "@material-tailwind/react";
+import { sections } from "@/constants";
 
 function Hero() {
   return (
-    <header className="bg-white p-8">
+    <header className="bg-white p-8" id={sections.home}>
       <div className="container mx-auto grid h-full gap-10 min-h-[60vh] w-full grid-cols-1 items-center lg:grid-cols-2">
         <div className="row-start-2 lg:row-auto">
           <Typography
@@ -13,15 +14,15 @@ function Hero() {
             color="blue-gray"
             className="mb-4 lg:text-5xl !leading-tight text-3xl"
           >
-            Welcome to my Web <br /> Development Portofolio!
+            Welcome to <br /> BBNH HVAC Solutions
           </Typography>
           <Typography
             variant="lead"
             className="mb-4 !text-gray-500 md:pr-16 xl:pr-28"
           >
-            I&apos;m Lily Smith, a passionate web developer based in USA. Here,
-            you&apos;ll get a glimpse of my journey in the world of web
-            development, where creativity meets functionality.
+            We specialize in providing top-tier supervision and design services
+            in the HVAC industry. Our experienced professionals are committed to
+            ensuring every project is executed with precision and efficiency.
           </Typography>
           <div className="grid">
             <Typography
@@ -38,19 +39,13 @@ function Hero() {
               </Button>
             </div>
           </div>
-          <Typography variant="small" className="font-normal !text-gray-500">
-            Read my{" "}
-            <a href="#" className="font-medium underline transition-colors">
-              Terms and Conditions
-            </a>
-          </Typography>
         </div>
         <Image
           width={1024}
           height={1024}
           alt="team work"
-          src="/image/image-7.svg"
-          className="h-[36rem] w-full rounded-xl object-cover"
+          src="/image/HVAC.jpg"
+          className="h-[36rem] w-full rounded-xl object-cover object-right border border-gray-300"
         />
       </div>
     </header>

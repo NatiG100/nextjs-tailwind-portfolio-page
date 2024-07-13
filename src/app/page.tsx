@@ -3,25 +3,19 @@ import { Navbar, Footer } from "@/components";
 
 // sections
 import Hero from "./hero";
-import Clients from "./clients";
-import Skills from "./skills";
 import Projects from "./projects";
-import Resume from "./resume";
-import Testimonial from "./testimonial";
-import PopularClients from "./popular-clients";
+import Team from "./team";
 import ContactForm from "./contact-form";
+import Services from "./services";
 
 export default function Portfolio() {
   return (
     <>
       <Navbar />
       <Hero />
-      <Clients />
-      <Skills />
+      <Services />
       <Projects />
-      <Resume />
-      <Testimonial />
-      <PopularClients />
+      <Team />
       <ContactForm />
       <Footer />
     </>

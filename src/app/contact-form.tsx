@@ -11,11 +11,13 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { EnvelopeIcon, PhoneIcon, TicketIcon } from "@heroicons/react/24/solid";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { sections } from "@/constants";
 
 export function ContactForm() {
   return (
-    <section className="px-8 py-16">
-      <div className="container mx-auto mb-20 text-center">
+    <section className="px-8 py-16" id={sections.contactUs}>
+      <div className="container mx-auto mb-20 text-center mt-5">
         <Typography variant="h1" color="blue-gray" className="mb-4">
           Contact Us
         </Typography>
@@ -44,30 +46,28 @@ export function ContactForm() {
               <div className="flex gap-5">
                 <PhoneIcon className="h-6 w-6 text-white" />
                 <Typography variant="h6" color="white" className="mb-2">
-                  +1(424) 535 3523
+                  +251968831490
                 </Typography>
               </div>
               <div className="flex my-2 gap-5">
                 <EnvelopeIcon className="h-6 w-6 text-white" />
                 <Typography variant="h6" color="white" className="mb-2">
-                  hello@mail.com
+                  gashubetsegaw@gmail.com
                 </Typography>
               </div>
-              <div className="flex mb-10 gap-5">
-                <TicketIcon className="h-6 w-6 text-white" />
-                <Typography variant="h6" color="white" className="mb-2">
-                  Open Support Ticket
-                </Typography>
-              </div>
-              <div className="flex items-center gap-5">
+
+              <div className="flex items-center gap-5 mt-4">
                 <IconButton variant="text" color="white">
-                  <i className="fa-brands fa-facebook text-lg" />
+                  <FaFacebook className="text-xl" />
                 </IconButton>
                 <IconButton variant="text" color="white">
-                  <i className="fa-brands fa-instagram text-lg" />
+                  <FaLinkedin className="text-xl" />
                 </IconButton>
                 <IconButton variant="text" color="white">
-                  <i className="fa-brands fa-github text-lg" />
+                  <FaInstagram className="text-xl" />
+                </IconButton>
+                <IconButton variant="text" color="white">
+                  <FaTwitter className="text-xl" />
                 </IconButton>
               </div>
             </div>
